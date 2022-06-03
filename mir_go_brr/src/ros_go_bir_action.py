@@ -41,33 +41,3 @@ if __name__ == '__main__':
         else:
             rospy.loginfo("Navigation failed!")
         rospy.sleep(1)
-
-
-# def movebase_client():
-
-#     client = actionlib.SimpleActionClient('move_base', MoveBaseAction)
-#     client.wait_for_server()
-
-#     goal = MoveBaseGoal()
-#     goal.target_pose.header.frame_id = "map"
-#     goal.target_pose.header.stamp = rospy.Time.now()
-#     goal.target_pose.pose.position.x = input('X position: ')
-#     goal.target_pose.pose.position.y = input('Y position: ')
-#     goal.target_pose.pose.orientation = Quaternion(*(quaternion_from_euler(0, 0, input('Facing angle (degrees): ')*math.pi/180, axes='sxyz')))
-
-#     client.send_goal(goal)
-#     wait = client.wait_for_result()
-#     if not wait:
-#         rospy.logerr("Action server not available!")
-#         rospy.signal_shutdown("Action server not available!")
-#     else:
-#         return client.get_result()
-
-# if __name__ == '__main__':
-#     try:
-#         rospy.init_node('movebase_client_py')
-#         result = movebase_client()
-#         if result:
-#             rospy.loginfo("Goal execution done!")
-#     except rospy.ROSInterruptException:
-#         rospy.loginfo("Navigation test finished.")
